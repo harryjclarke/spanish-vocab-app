@@ -8,7 +8,11 @@ const VerbsList = () => {
     isSuccess,
     isError,
     error,
-  } = useGetVerbsQuery();
+  } = useGetVerbsQuery(undefined, {
+    pollingInterval: 60000,
+    refetchOnFocus: true,
+    refetchOnMountOrArgChange: true,
+  }); //maybe need to put options here?
 
   let content;
 
@@ -30,23 +34,12 @@ const VerbsList = () => {
         <thead className="table__thead">
           <tr>
             <th scope="col" className="table__th verb__status">
-              Username
+              Verb
             </th>
             <th scope="col" className="table__th verb__created">
-              Created
+              Definition
             </th>
-            <th scope="col" className="table__th verb__updated">
-              Updated
-            </th>
-            <th scope="col" className="table__th verb__title">
-              Title
-            </th>
-            <th scope="col" className="table__th verb__username">
-              Owner
-            </th>
-            <th scope="col" className="table__th verb__edit">
-              Edit
-            </th>
+            <th scope="col" className="table__th verb__updated"></th>
           </tr>
         </thead>
         <tbody>{tableContent}</tbody>

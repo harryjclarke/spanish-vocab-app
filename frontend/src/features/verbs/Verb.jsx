@@ -1,5 +1,3 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 
 import { useSelector } from "react-redux";
@@ -11,18 +9,16 @@ const Verb = ({ verbId }) => {
   const navigate = useNavigate();
 
   if (verb) {
-    const handleEdit = () => navigate(`/verbs/${verbId}`);
+    const handleClick = () => navigate(`/verbs/${verbId}`);
 
     return (
       <tr className="table__row">
         <td className="table__cell verb__created">{verb.infinitive}</td>
-        <td className="table__cell verb__updated"></td>
-        <td className="table__cell verb__title"></td>
-        <td className="table__cell verb__username"></td>
+        <td className="table__cell verb__updated">{verb.definition}</td>
 
         <td className="table__cell">
-          <button className="icon-button table__button" onClick={handleEdit}>
-            <FontAwesomeIcon icon={faPenToSquare} />
+          <button className="icon-button table__button" onClick={handleClick}>
+            Conjugations
           </button>
         </td>
       </tr>

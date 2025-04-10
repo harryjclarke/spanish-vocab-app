@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 
 const verbSchema = new mongoose.Schema({
   infinitive: String,
+  definition: String,
   present: [{ conjugation: String, pronoun: String }],
   preterite: [{ conjugation: String, pronoun: String }],
   imperfect: [{ conjugation: String, pronoun: String }],

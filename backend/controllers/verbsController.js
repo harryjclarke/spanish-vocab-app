@@ -19,6 +19,7 @@ const getAllVerbs = asyncHandler(async (req, res) => {
 const createNewVerb = asyncHandler(async (req, res) => {
   const {
     infinitive,
+    definition,
     present,
     preterite,
     imperfect,
@@ -30,6 +31,7 @@ const createNewVerb = asyncHandler(async (req, res) => {
   // Confirm data
   if (
     !infinitive ||
+    !definition ||
     !present ||
     !preterite ||
     !imperfect ||
@@ -48,6 +50,7 @@ const createNewVerb = asyncHandler(async (req, res) => {
 
   const verbObject = {
     infinitive,
+    definition,
     present,
     preterite,
     imperfect,
@@ -73,6 +76,7 @@ const updateVerb = asyncHandler(async (req, res, next) => {
   const {
     id,
     infinitive,
+    definition,
     present,
     preterite,
     imperfect,
@@ -104,6 +108,7 @@ const updateVerb = asyncHandler(async (req, res, next) => {
   }
 
   verb.infinitive = infinitive;
+  if (definition) verb.definition = definition;
   if (present) verb.present = present;
   if (preterite) verb.preterite = preterite;
   if (imperfect) verb.imperfect = imperfect;
