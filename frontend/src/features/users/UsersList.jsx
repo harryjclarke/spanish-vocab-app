@@ -15,7 +15,7 @@ const UsersList = () => {
   if (isLoading) content = <p>Loading...</p>;
 
   if (isError) {
-    content = <p className="errmsg">{error?.data?.message}</p>;
+    content = <p className="bg-red-500">{error?.data}</p>;
   }
 
   if (isSuccess) {

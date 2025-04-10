@@ -10,10 +10,12 @@ import {
 import Layout from "./components/Layout";
 import Public from "./components/Public";
 import Login from "./features/auth/Login.jsx";
-import DashLayout from "./components/DashLayout";
-import Welcome from "./features/auth/Welcome.jsx";
 import VerbsList from "./features/verbs/VerbsList";
 import UsersList from "./features/users/UsersList";
+import NewUserForm from "./features/users/NewUserForm";
+import Prefetch from "./features/auth/Prefetch";
+import Play from "./features/play/Play";
+import VerbDetailed from "./features/verbs/VerbDetailed";
 import { store } from "./app/store";
 import { Provider } from "react-redux";
 
@@ -23,16 +25,20 @@ const router = createBrowserRouter(
       <Route index element={<Public />} />
       <Route path="login" element={<Login />} />
 
-      <Route path="verbs">
-        <Route index element={<VerbsList />} />
-      </Route>
+      <Route element={<Prefetch />}>
+        <Route path="play">
+          <Route index element={<Play />} />
+        </Route>
 
-      <Route path="users">
-        <Route index element={<UsersList />} />
-      </Route>
+        <Route path="verbs">
+          <Route index element={<VerbsList />} />
+          <Route path=":id" element={<VerbDetailed />} />
+        </Route>
 
-      <Route path="dash" element={<DashLayout />}>
-        <Route index element={<Welcome />} />
+        <Route path="users">
+          <Route index element={<UsersList />} />
+          <Route path="register" element={<NewUserForm />} />
+        </Route>
       </Route>
     </Route>
   )

@@ -16,14 +16,14 @@ const Navbar = () => {
             </Link>
             <div className="md:ml-auto">
               <div className="flex space-x-2">
-                <Link to="/" className={linkClass}>
-                  Home
-                </Link>
                 <Link to="/verbs" className={linkClass}>
                   Verbs
                 </Link>
                 <Link to="/login" className={linkClass}>
-                  Login
+                  Log in
+                </Link>
+                <Link to="/register" className={linkClass}>
+                  Sign up
                 </Link>
               </div>
             </div>

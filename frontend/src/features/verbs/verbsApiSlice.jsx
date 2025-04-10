@@ -29,10 +29,43 @@ export const verbsApiSlice = apiSlice.injectEndpoints({
         } else return [{ type: "Verb", id: "LIST" }];
       },
     }),
+    addNewVerb: builder.mutation({
+      query: (initialVerbData) => ({
+        url: "/verbs",
+        method: "POST",
+        body: {
+          ...initialVerbData,
+        },
+      }),
+      invalidatesTags: [{ type: "Verb", id: "LIST" }],
+    }),
+    updateVerb: builder.mutation({
+      query: (initialVerbData) => ({
+        url: "/verbs",
+        method: "PATCH",
+        body: {
+          ...initialVerbData,
+        },
+      }),
+      invalidatesTags: (result, error, arg) => [{ type: "Verb", id: arg.id }],
+    }),
+    deleteVerb: builder.mutation({
+      query: ({ id }) => ({
+        url: `/verbs`,
+        method: "DELETE",
+        body: { id },
+      }),
+      invalidatesTags: (result, error, arg) => [{ type: "Verb", id: arg.id }],
+    }),
   }),
 });
 
-export const { useGetVerbsQuery } = verbsApiSlice;
+export const {
+  useGetVerbsQuery,
+  useAddNewVerbMutation,
+  useUpdateVerbMutation,
+  useDeleteVerbMutation,
+} = verbsApiSlice;
 
 // returns the query result object
 export const selectVerbsResult = verbsApiSlice.endpoints.getVerbs.select();

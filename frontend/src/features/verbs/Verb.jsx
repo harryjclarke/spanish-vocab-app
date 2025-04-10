@@ -11,7 +11,7 @@ const Verb = ({ verbId }) => {
   const navigate = useNavigate();
 
   if (verb) {
-    const handleEdit = () => navigate(`/dash/verbs/${verbId}`);
+    const handleEdit = () => navigate(`/verbs/${verbId}`);
 
     return (
       <tr className="table__row">
