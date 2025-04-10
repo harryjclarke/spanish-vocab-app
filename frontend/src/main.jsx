@@ -40,7 +40,7 @@ const router = createBrowserRouter(
 
         <Route path="settings">
           <Route index element={<Settings />} />
-          {/* <Route path=":id" element={<EditUserForm />}></Route> */}
+          <Route path="edit-profile" element={<EditUserForm />} />
         </Route>
 
         <Route path="users">

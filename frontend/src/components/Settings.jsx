@@ -1,5 +1,11 @@
+import { Link } from "react-router-dom";
+
 const Settings = () => {
-  return <div>Settings</div>;
+  return (
+    <>
+      <Link to="/settings/edit-profile">Edit Profile</Link>
+    </>
+  );
 };
 
 export default Settings;

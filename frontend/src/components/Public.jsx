@@ -1,7 +1,3 @@
-import { Link } from "react-router-dom";
-
-import React from "react";
-
 const Public = () => {
   const date = new Date();
   const today = new Intl.DateTimeFormat("en-GB", {

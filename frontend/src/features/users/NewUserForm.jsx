@@ -3,15 +3,20 @@ import { useAddNewUserMutation } from "./usersApiSlice";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSave } from "@fortawesome/free-solid-svg-icons";
+import { useLoginMutation } from "../auth/authApiSlice";
+import { setCredentials } from "../auth/authSlice";
+import { useDispatch } from "react-redux";
 
-const USER_REGEX = /^[A-z]{3,20}$/;
+const USER_REGEX = /^[A-z0-9]{3,20}$/;
 const PWD_REGEX = /^[A-z0-9!@#$%]{4,12}$/;
 
 const NewUserForm = () => {
   const [addNewUser, { isLoading, isSuccess, isError, error }] =
     useAddNewUserMutation();
+  const [login, { isLoadingLogin }] = useLoginMutation();
 
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const [username, setUsername] = useState("");
   const [validUsername, setValidUsername] = useState(false);
@@ -44,6 +49,15 @@ const NewUserForm = () => {
     if (canSave) {
       await addNewUser({ username, password });
     }
+    try {
+      const { accessToken } = await login({ username, password }).unwrap();
+      dispatch(setCredentials({ accessToken }));
+      setUsername("");
+      setPassword("");
+      navigate("/");
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   const errClass = isError ? "errmsg" : "offscreen";
@@ -64,7 +78,7 @@ const NewUserForm = () => {
           </div>
         </div>
         <label className="form__label" htmlFor="username">
-          Username: <span className="nowrap">[3-20 letters]</span>
+          Username: <span className="nowrap"></span>
         </label>
         <input
           className={`form__input ${validUserClass}`}
