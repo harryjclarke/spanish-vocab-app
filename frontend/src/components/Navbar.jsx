@@ -11,7 +11,7 @@ const Navbar = () => {
           <div className="flex flex-1 items-center justify-center md:items-stretch md:justify-start">
             <Link className="flex flex-shrink-0 items-center mr-4" to="/">
               <span className="hidden md:block text-white text-2xl font-bold ml-2">
-                React Jobs
+                Spanish Project
               </span>
             </Link>
             <div className="md:ml-auto">

@@ -14,6 +14,8 @@ import DashLayout from "./components/DashLayout";
 import Welcome from "./features/auth/Welcome.jsx";
 import VerbsList from "./features/verbs/VerbsList";
 import UsersList from "./features/users/UsersList";
+import { store } from "./app/store";
+import { Provider } from "react-redux";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -38,6 +40,8 @@ const router = createBrowserRouter(
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
   </StrictMode>
 );
