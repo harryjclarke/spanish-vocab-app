@@ -8,7 +8,8 @@ const Question = () => {
   let content;
   const options = useSelector(selectAllOptions);
   const inPlayWords = useSelector(selectAllInPlay);
-  const numQuestions = options.numQuestions;
+  let numQuestions = options.numQuestions;
+  if (numQuestions > inPlayWords.length) numQuestions = inPlayWords.length;
   // const numQuestions = 2; //to be updated to use state
   // const inPlayWords = [
   //   {
@@ -35,6 +36,7 @@ const Question = () => {
     var tense = currentWord.tense;
     var pronoun = currentWord.pronoun;
     var conjugation = currentWord.conjugation;
+    var definition = currentWord.definition;
   }
 
   const onAnswerChanged = (e) => setAnswer(e.target.value);
@@ -52,9 +54,7 @@ const Question = () => {
 
     const nextWordsIndex = wordsIndex + 1;
 
-    console.log(nextWordsIndex);
-    console.log(numQuestions);
-    if (nextWordsIndex === numQuestions) {
+    if (nextWordsIndex >= numQuestions) {
       setShowResults(true);
     } else {
       setWordsIndex(wordsIndex + 1);
@@ -67,6 +67,7 @@ const Question = () => {
     content = (
       <>
         <div>{infinitive}</div>
+        <div>{definition}</div>
         <div>{tense}</div>
         <div>{pronoun}</div>
         <form onSubmit={answerSubmit}>

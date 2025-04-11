@@ -26,13 +26,16 @@ const Play = () => {
     if (options.conditionalChecked) inPlayTenses.push("conditional");
 
     if (!options.irregularChecked) {
-      verbsFiltered = verbs.filter((v) => v.irregular.present === false);
+      verbsFiltered = verbs.filter((v) => v.irregular === false);
     } else {
       verbsFiltered = verbs;
     }
 
     let shuffled = verbsFiltered.sort(() => 0.5 - Math.random());
     let selected = shuffled.slice(0, numQuestions);
+
+    console.log(selected);
+    console.log(inPlayTenses);
 
     selected.forEach((ele) => {
       let arrayIndex = Math.floor(Math.random() * inPlayTenses.length);
@@ -51,7 +54,6 @@ const Play = () => {
       });
     });
 
-    console.log(inPlayWords);
     dispatch(
       setInPlayVerbs({
         inPlay: inPlayWords,
