@@ -8,13 +8,7 @@ const verbSchema = new mongoose.Schema({
   imperfect: [{ conjugation: String, pronoun: String }],
   future: [{ conjugation: String, pronoun: String }],
   conditional: [{ conjugation: String, pronoun: String }],
-  irregular: {
-    present: Boolean,
-    preterite: Boolean,
-    imperfect: Boolean,
-    future: Boolean,
-    conditional: Boolean,
-  },
+  irregular: Boolean,
 });
 
 module.exports = mongoose.model("Verb", verbSchema);
