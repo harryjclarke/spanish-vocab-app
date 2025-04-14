@@ -15,7 +15,7 @@ const User = ({ userId }) => {
 
     // const userRolesString = user.roles.toString().replaceAll(",", ", "); //useful
 
-    const cellStatus = user.active ? "" : "table__cell--inactive";
+    const cellStatus = "";
 
     return (
       <tr className="table__row user">

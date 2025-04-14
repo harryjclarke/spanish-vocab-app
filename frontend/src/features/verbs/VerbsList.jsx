@@ -8,7 +8,7 @@ const VerbsList = () => {
     isSuccess,
     isError,
     error,
-  } = useGetVerbsQuery(undefined, {
+  } = useGetVerbsQuery("verbsList", {
     pollingInterval: 60000,
     refetchOnFocus: true,
     refetchOnMountOrArgChange: true,

@@ -15,10 +15,6 @@ const userSchema = new mongoose.Schema({
       default: "Basic",
     },
   ],
-  active: {
-    type: Boolean,
-    default: true,
-  },
   preferences: {},
 });
 

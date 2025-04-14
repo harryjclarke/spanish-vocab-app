@@ -19,7 +19,7 @@ const Navbar = () => {
   const sendLogoutHandler = async () => {
     try {
       await sendLogout({}).unwrap();
-      if (SETTINGS_REGEX.test(pathname)) navigate("/");
+      navigate("/");
     } catch (error) {
       console.log(error);
     }

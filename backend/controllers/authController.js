@@ -15,7 +15,9 @@ const login = asyncHandler(async (req, res) => {
 
   const foundUser = await User.findOne({ username }).exec();
 
-  if (!foundUser || !foundUser.active) {
+  console.log(foundUser);
+
+  if (!foundUser) {
     return res.status(401).json({ message: "Unauthorized" });
   }
 
@@ -26,6 +28,7 @@ const login = asyncHandler(async (req, res) => {
   const accessToken = jwt.sign(
     {
       UserInfo: {
+        id: foundUser._id,
         username: foundUser.username,
       },
     },

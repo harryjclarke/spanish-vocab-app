@@ -20,31 +20,34 @@ import VerbDetailed from "./features/verbs/VerbDetailed";
 import EditUserForm from "./features/users/EditUserForm";
 import { store } from "./app/store";
 import { Provider } from "react-redux";
+import PersistLogin from "./features/auth/PersistLogin.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<Layout />}>
-      <Route index element={<Public />} />
-      <Route path="login" element={<Login />} />
-      <Route path="register" element={<NewUserForm />} />
+    <Route element={<PersistLogin />}>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<Public />} />
+        <Route path="login" element={<Login />} />
+        <Route path="register" element={<NewUserForm />} />
 
-      <Route element={<Prefetch />}>
-        <Route path="play">
-          <Route index element={<Play />} />
-        </Route>
+        <Route element={<Prefetch />}>
+          <Route path="play">
+            <Route index element={<Play />} />
+          </Route>
 
-        <Route path="verbs">
-          <Route index element={<VerbsList />} />
-          <Route path=":id" element={<VerbDetailed />} />
-        </Route>
+          <Route path="verbs">
+            <Route index element={<VerbsList />} />
+            <Route path=":id" element={<VerbDetailed />} />
+          </Route>
 
-        <Route path="settings">
-          <Route index element={<Settings />} />
-          <Route path="edit-profile" element={<EditUserForm />} />
-        </Route>
+          <Route path="settings">
+            <Route index element={<Settings />} />
+            <Route path="edit-profile" element={<EditUserForm />} />
+          </Route>
 
-        <Route path="users">
-          <Route path="index" element={<UsersList />} />
+          <Route path="users">
+            <Route path="index" element={<UsersList />} />
+          </Route>
         </Route>
       </Route>
     </Route>

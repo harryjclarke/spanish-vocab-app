@@ -1,11 +1,14 @@
 import { useState, useEffect } from "react";
 import { useUpdateUserMutation, useDeleteUserMutation } from "./usersApiSlice";
 import { useNavigate } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
 
 const USER_REGEX = /^[A-z0-9]{3,20}$/;
 const PWD_REGEX = /^[A-z0-9!@#$%]{4,12}$/;
 
 const EditUserForm = () => {
+  const user = useAuth();
+
   const [updateUser, { isLoading, isSuccess, isError, error }] =
     useUpdateUserMutation();
 
@@ -34,7 +37,7 @@ const EditUserForm = () => {
     if (isSuccess || isDelSuccess) {
       setUsername("");
       setPassword("");
-      navigate("/users");
+      navigate("/settings");
     }
   }, [isSuccess, isDelSuccess, navigate]);
 
