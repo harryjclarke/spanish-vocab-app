@@ -5,6 +5,7 @@ import { selectAllOptions } from "./playSlice";
 import { selectAllInPlay } from "./playSlice";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import e from "cors";
 
 const Question = () => {
   let content;
@@ -33,6 +34,9 @@ const Question = () => {
   const [wordsIndex, setWordsIndex] = useState(0);
   const [showResults, setShowResults] = useState(false);
   const currentWord = inPlayWords[wordsIndex];
+  const spanCharacterButtonClass =
+    "rounded py-2.5 px-3 bg-blue-700 hover:bg-blue-800 text-white";
+
   if (currentWord) {
     var infinitive = currentWord.infinitive;
     var tense = currentWord.tense;
@@ -45,6 +49,10 @@ const Question = () => {
   }, []);
 
   const onAnswerChanged = (e) => setAnswer(e.target.value);
+
+  const onCharacterButtonClicked = (e) => {
+    setAnswer(answer + e.target.value);
+  };
 
   const answerSubmit = (e) => {
     e.preventDefault();
@@ -110,7 +118,7 @@ const Question = () => {
                 </th>
                 <td className="pl-6 py-4">
                   <form onSubmit={answerSubmit}>
-                    <div className="flex">
+                    <div className="flex items-center">
                       <input
                         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-sm focus:ring-blue-500 focus:border-blue-500 block "
                         ref={userRef}
@@ -121,7 +129,7 @@ const Question = () => {
                         onChange={onAnswerChanged}
                       />
                       <div>
-                        <button className="ml-16 rounded bg-blue-700 hover:bg-blue-800 p-1">
+                        <button className="ml-16 rounded bg-blue-700 hover:bg-blue-800 py-2 px-3">
                           <FontAwesomeIcon
                             className="text-lg"
                             icon={faArrowRight}
@@ -134,6 +142,43 @@ const Question = () => {
               </tr>
             </tbody>
           </table>
+        </div>
+        <div className="mt-5 w-[15%] flex justify-between">
+          <button
+            value="á"
+            className={spanCharacterButtonClass}
+            onClick={onCharacterButtonClicked}
+          >
+            á
+          </button>
+          <button
+            value="é"
+            className={spanCharacterButtonClass}
+            onClick={onCharacterButtonClicked}
+          >
+            é
+          </button>
+          <button
+            value="í"
+            className={spanCharacterButtonClass}
+            onClick={onCharacterButtonClicked}
+          >
+            í
+          </button>
+          <button
+            value="ó"
+            className={spanCharacterButtonClass}
+            onClick={onCharacterButtonClicked}
+          >
+            ó
+          </button>
+          <button
+            value="ú"
+            className={spanCharacterButtonClass}
+            onClick={onCharacterButtonClicked}
+          >
+            ú
+          </button>
         </div>
       </div>
 
