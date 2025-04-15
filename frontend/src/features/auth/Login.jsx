@@ -58,54 +58,71 @@ const Login = () => {
   if (isLoading) return <p>Loading...</p>;
 
   const content = (
-    <section className="public">
-      <header>
-        <h1>Login</h1>
-      </header>
-      <main className="login">
-        <p ref={errRef} className={errClass} aria-live="assertive">
-          {errMsg}
-        </p>
+    <div className="bg-gray-900 h-[91.9vh] flex flex-col items-center pt-20 ">
+      <p ref={errRef} className={errClass} aria-live="assertive">
+        {errMsg}
+      </p>
 
-        <form className="form" onSubmit={handleSubmit}>
-          <label htmlFor="username">Username:</label>
-          <input
-            className="form__input"
-            type="text"
-            id="username"
-            ref={userRef}
-            value={username}
-            onChange={handleUserInput}
-            autoComplete="off"
-            required
-          />
-
-          <label htmlFor="password">Password:</label>
-          <input
-            className="form__input"
-            type="password"
-            id="password"
-            onChange={handlePwdInput}
-            value={password}
-            required
-          />
-          <button className="form__submit-button">Sign In</button>
-
-          <label htmlFor="persist">
+      <form className="w-[30%]" onSubmit={handleSubmit}>
+        <div class="grid gap-6 mb-6 md:grid-cols-1">
+          <div>
+            <label
+              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              htmlFor="username"
+            >
+              Username:
+            </label>
             <input
-              type="checkbox"
-              id="persist"
-              onChange={handleToggle}
-              checked={persist}
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              type="text"
+              id="username"
+              ref={userRef}
+              value={username}
+              onChange={handleUserInput}
+              autoComplete="off"
+              required
             />
-            Trust This Device
+          </div>
+          <div>
+            <label
+              htmlFor="password"
+              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            >
+              Password:
+            </label>
+            <input
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              type="password"
+              id="password"
+              onChange={handlePwdInput}
+              value={password}
+              required
+            />
+          </div>
+        </div>
+        <div className="flex items-start mb-6">
+          <label
+            className="ml-1 text-sm font-medium text-gray-900 dark:text-gray-300"
+            htmlFor="persist"
+          >
+            <div className="flex items-center h-5">
+              <input
+                type="checkbox"
+                id="persist"
+                onChange={handleToggle}
+                checked={persist}
+                className="w-4 h-4 border border-gray-300 rounded-sm bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800"
+              />
+              <p className="pl-2">Trust This Device</p>
+            </div>
           </label>
-        </form>
-      </main>
-      <footer>
-        <Link to="/">Back to Home</Link>
-      </footer>
-    </section>
+        </div>
+
+        <button className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+          Sign In
+        </button>
+      </form>
+    </div>
   );
 
   return content;

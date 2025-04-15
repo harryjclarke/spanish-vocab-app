@@ -31,48 +31,57 @@ const VerbDetailed = () => {
   filler(verb.conditional);
 
   return (
-    <table className="table table--verbs">
-      <thead className="table__thead">
-        <tr>
-          <th scope="col" className="table__th verb__status"></th>
-          <th scope="col" className="table__th verb__created">
-            Present
-          </th>
-          <th scope="col" className="table__th verb__updated">
-            Preterite
-          </th>
-          <th scope="col" className="table__th verb__created">
-            Imperfect
-          </th>
-          <th scope="col" className="table__th verb__updated">
-            Future
-          </th>
-          <th scope="col" className="table__th verb__updated">
-            Conditional
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr className="table__row">
-          <Conjugations tense="yo" obj={obj} />
-        </tr>
-        <tr className="table__row">
-          <Conjugations tense="tu" obj={obj} />
-        </tr>
-        <tr className="table__row">
-          <Conjugations tense="el/ella/usted" obj={obj} />
-        </tr>
-        <tr className="table__row">
-          <Conjugations tense="nosotros" obj={obj} />
-        </tr>
-        <tr className="table__row">
-          <Conjugations tense="vosotros" obj={obj} />
-        </tr>
-        <tr className="table__row">
-          <Conjugations tense="ellos/ellas/ustedes" obj={obj} />
-        </tr>
-      </tbody>
-    </table>
+    <div className="bg-gray-900 h-[91.9vh] flex flex-col items-center pt-20">
+      <h1 className="text-lg text-gray-200 lg:text-xl dark:text-gray-200">
+        {verb.infinitive} - {verb.definition}
+      </h1>
+      <div className="w-[70%] relative overflow-x-auto pt-10">
+        <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+          <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+              <th scope="col" className="px-6 py-3">
+                Subject
+              </th>
+              <th scope="col" className="px-6 py-3">
+                Present
+              </th>
+              <th scope="col" className="px-6 py-3">
+                Preterite
+              </th>
+              <th scope="col" className="px-6 py-3">
+                Imperfect
+              </th>
+              <th scope="col" className="px-6 py-3">
+                Future
+              </th>
+              <th scope="col" className="px-6 py-3">
+                Conditional
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200">
+              <Conjugations tense="yo" obj={obj} />
+            </tr>
+            <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200">
+              <Conjugations tense="tu" obj={obj} />
+            </tr>
+            <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200">
+              <Conjugations tense="el/ella/usted" obj={obj} />
+            </tr>
+            <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200">
+              <Conjugations tense="nosotros" obj={obj} />
+            </tr>
+            <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200">
+              <Conjugations tense="vosotros" obj={obj} />
+            </tr>
+            <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200">
+              <Conjugations tense="ellos/ellas/ustedes" obj={obj} />
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
   );
 };
 
