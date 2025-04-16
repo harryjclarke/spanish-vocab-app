@@ -181,24 +181,6 @@ const Question = () => {
           </button>
         </div>
       </div>
-
-      // <>
-      //   <div>{infinitive}</div>
-      //   <div>{definition}</div>
-      //   <div>{tense}</div>
-      //   <div>{pronoun}</div>
-      //   <form onSubmit={answerSubmit}>
-      //     <label></label>
-      //     <input
-      //       type="text"
-      //       autoComplete="off"
-      //       required
-      //       value={answer}
-      //       onChange={onAnswerChanged}
-      //     />
-      //     <button>Submit</button>
-      //   </form>
-      // </>
     );
   }
   return content;

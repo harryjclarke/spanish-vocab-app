@@ -13,11 +13,24 @@ const Options = ({ onClick }) => {
   const [futureChecked, setFutureChecked] = useState(true);
   const [conditionalChecked, setConditionalChecked] = useState(true);
   const [irregularChecked, setIrregularChecked] = useState(true);
+  const [errMsg, setErrMsg] = useState("");
 
   const dispatch = useDispatch();
 
   const onSubmitForm = (e) => {
     e.preventDefault();
+
+    if (
+      !presentChecked &&
+      !preteriteChecked &&
+      !imperfectChecked &&
+      !futureChecked &&
+      !conditionalChecked
+    ) {
+      setErrMsg("Select at least one tense");
+      return;
+    }
+
     dispatch(
       setInPlayVerbs({
         options: {
@@ -173,6 +186,11 @@ const Options = ({ onClick }) => {
             min="1"
           />
         </div>
+        {errMsg && (
+          <div className="flex justify-center mt-4 -mb-4">
+            <p className="text-gray-300 font-bold">{errMsg}</p>
+          </div>
+        )}
         <div className="flex justify-center">
           <button
             type="submit"

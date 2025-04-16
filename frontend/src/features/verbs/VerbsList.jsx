@@ -16,7 +16,10 @@ const VerbsList = () => {
 
   let content;
 
-  if (isLoading) content = <p>Loading...</p>;
+  if (isLoading)
+    content = (
+      <div className="bg-gray-900 h-[91.9vh] flex flex-col items-center pt-20"></div>
+    );
 
   if (isError) {
     content = <p className="errmsg">{error?.data?.message}</p>;

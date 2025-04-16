@@ -36,12 +36,12 @@ const Login = () => {
       setPassword("");
       navigate("/");
     } catch (err) {
-      if (!err.status) {
+      if (!err.status || err.status === "FETCH_ERROR") {
         setErrMsg("No Server Response");
       } else if (err.status === 400) {
         setErrMsg("Missing Username or Password");
       } else if (err.status === 401) {
-        setErrMsg("Unauthorized");
+        setErrMsg("Incorrect Username or Password");
       } else {
         setErrMsg(err.data?.message);
       }
@@ -53,15 +53,21 @@ const Login = () => {
   const handlePwdInput = (e) => setPassword(e.target.value);
   const handleToggle = () => setPersist((prev) => !prev);
 
-  const errClass = errMsg ? "errmsg" : "offscreen";
+  const errClass = errMsg ? "text-[#d4111e] font-thin ml-2 -mt-5 mb-2" : "";
+  const inputFieldClass = errMsg
+    ? "bg-gray-50 border border-red-500 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-red-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+    : "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500";
 
-  if (isLoading) return <p>Loading...</p>;
+  if (isLoading)
+    return (
+      <div className="bg-gray-900 h-[91.9vh] flex flex-col items-center pt-20"></div>
+    );
 
   const content = (
     <div className="bg-gray-900 h-[91.9vh] flex flex-col items-center pt-20 ">
-      <p ref={errRef} className={errClass} aria-live="assertive">
+      {/* <p ref={errRef} className={errClass} aria-live="assertive">
         {errMsg}
-      </p>
+      </p> */}
 
       <form className="w-[30%]" onSubmit={handleSubmit}>
         <div class="grid gap-6 mb-6 md:grid-cols-1">
@@ -73,7 +79,7 @@ const Login = () => {
               Username:
             </label>
             <input
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className={inputFieldClass}
               type="text"
               id="username"
               ref={userRef}
@@ -91,7 +97,7 @@ const Login = () => {
               Password:
             </label>
             <input
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className={inputFieldClass}
               type="password"
               id="password"
               onChange={handlePwdInput}
@@ -100,6 +106,9 @@ const Login = () => {
             />
           </div>
         </div>
+        <p ref={errRef} className={errClass} aria-live="assertive">
+          {errMsg}
+        </p>
         <div className="flex items-start mb-6">
           <label
             className="ml-1 text-sm font-medium text-gray-900 dark:text-gray-300"
