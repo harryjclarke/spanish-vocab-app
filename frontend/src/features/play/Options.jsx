@@ -57,7 +57,7 @@ const Options = ({ onClick }) => {
         <div className="text- font-medium text-gray-900 dark:text-gray-300 -mt-3 mb-1.5 ml-1">
           Tenses:
         </div>
-        <div class="grid gap-4 mb-6 md:grid-cols-2">
+        <div className="grid gap-4 mb-6 md:grid-cols-2">
           <div className="flex items-start mb-6">
             <label
               className="ml-1 text-sm font-medium text-gray-900 dark:text-gray-300"

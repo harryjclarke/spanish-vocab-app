@@ -83,11 +83,11 @@ const Navbar = () => {
         <Link to="/verbs" className={linkClass}>
           Verbs
         </Link>
-        <div class="relative inline-block text-left" ref={menuRef}>
+        <div className="relative inline-block text-left" ref={menuRef}>
           <div>
             <button
               type="button"
-              class="inline-flex w-full text-white hover:text-white justify-center gap-x-1.5 rounded-md px-3 py-2 hover:bg-gray-900"
+              className="inline-flex w-full text-white hover:text-white justify-center gap-x-1.5 rounded-md px-3 py-2 hover:bg-gray-900"
               id="menu-button"
               aria-expanded="true"
               aria-haspopup="true"
@@ -97,36 +97,36 @@ const Navbar = () => {
             >
               {user.username}
               <svg
-                class="-mr-1 size-5 text-gray-400"
+                className="-mr-1 size-5 text-gray-400"
                 viewBox="0 0 20 20"
                 fill="currentColor"
                 aria-hidden="true"
                 data-slot="icon"
               >
                 <path
-                  fill-rule="evenodd"
+                  fillRule="evenodd"
                   d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
-                  clip-rule="evenodd"
+                  clipRule="evenodd"
                 />
               </svg>
             </button>
           </div>
           <div
-            class={`${
+            className={`${
               !open && "hidden"
             } absolute right-0 z-10 mt-2 w-full origin-top-right rounded-md bg-gray-600 shadow-lg ring-1 border-solid border-black border-1 ring-black/5 focus:outline-hidden`}
             role="menu"
             aria-orientation="vertical"
             aria-labelledby="menu-button"
-            tabindex="-1"
+            tabIndex="-1"
           >
-            <div class="py-1" role="none">
+            <div className="py-1" role="none">
               <Link
                 onClick={() => {
                   setOpen(!open);
                 }}
                 to="/settings"
-                class="block px-4 py-2 text-sm text-white"
+                className="block px-4 py-2 text-sm text-white"
               >
                 Preferences
               </Link>
@@ -135,7 +135,7 @@ const Navbar = () => {
                   setOpen(!open);
                 }}
                 to="/settings/edit-profile"
-                class="block px-4 py-2 text-sm text-white"
+                className="block px-4 py-2 text-sm text-white"
               >
                 Edit Profile
               </Link>

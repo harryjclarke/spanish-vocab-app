@@ -66,7 +66,15 @@ const Play = () => {
     setGameStart(true);
   };
 
-  return <>{gameStart ? <Question /> : <Options onClick={handleClick} />}</>;
+  return (
+    <>
+      {gameStart ? (
+        <Question setGameStart={setGameStart} />
+      ) : (
+        <Options onClick={handleClick} />
+      )}
+    </>
+  );
 };
 
 export default Play;
