@@ -25,11 +25,10 @@ const createNewUser = asyncHandler(async (req, res) => {
   }
 
   // Check for duplicate
-  console.log("checking duplicate");
   const duplicate = await User.findOne({ username }).lean().exec();
   console.log(duplicate);
   if (duplicate) {
-    return res.status(409).json({ message: "Duplicate username" });
+    return res.status(409).json({ message: "This username already exists" });
   }
 
   // Hash password
@@ -51,13 +50,17 @@ const createNewUser = asyncHandler(async (req, res) => {
 // @route PATCH /users
 // @access Private
 const updateUser = asyncHandler(async (req, res) => {
-  const { id, username, password } = req.body;
+  const { id, username, password, newPassword, type } = req.body;
 
   // Confirm data
-  if (!id || !username) {
-    return res
-      .status(400)
-      .json({ message: "All fields except password are required" });
+  if (type === "username") {
+    if (!id || !username || !password) {
+      return res.status(400).json({ message: "All fields are required" });
+    }
+  } else if (type === "password") {
+    if (!id || !password || !newPassword) {
+      return res.status(400).json({ message: "All fields are required" });
+    }
   }
 
   // Does the user exist to update?
@@ -67,20 +70,29 @@ const updateUser = asyncHandler(async (req, res) => {
     return res.status(400).json({ message: "User not found" });
   }
 
+  const match = await bcrypt.compare(password, user.password);
+
+  if (!match) return res.status(401).json({ message: "Incorrect password" });
+
   // Check for duplicate
-  const duplicate = await User.findOne({ username }).lean().exec();
-
-  // Allow updates to the original user
-  if (duplicate && duplicate?._id.toString() !== id) {
-    return res.status(409).json({ message: "Duplicate username" });
+  if (type === "username") {
+    const duplicate = await User.findOne({ username }).lean().exec();
+    // Allow updates to the original user
+    if (duplicate && duplicate?._id.toString() !== id) {
+      return res.status(409).json({ message: "Username already exists" });
+    }
   }
 
-  user.username = username;
-
-  if (password) {
-    // Hash password
-    user.password = await bcrypt.hash(password, 10); // salt rounds
+  if (type === "username") {
+    user.username = username;
+  } else if (type === "password") {
+    user.password = await bcrypt.hash(newPassword, 10); // salt rounds
   }
+
+  // if (password) {
+  //   // Hash password
+  //   user.password = await bcrypt.hash(password, 10); // salt rounds
+  // }
 
   const updatedUser = await user.save();
 

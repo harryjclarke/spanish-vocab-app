@@ -6,6 +6,8 @@ import { selectAllInPlay } from "./playSlice";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { setUserAnswer } from "./playSlice";
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
+import { faCheck } from "@fortawesome/free-solid-svg-icons";
 
 const Question = ({ setGameStart }) => {
   const dispatch = useDispatch();
@@ -226,7 +228,7 @@ const Question = ({ setGameStart }) => {
           ) : (
             <div className="flex justify-center w-[30%] relative overflow-x-auto pt-10">
               <table
-                className={`w-[90%] text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 border-green-400 border mb-10`}
+                className={`w-[90%] text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400  mb-10`}
               >
                 <tbody>
                   <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200">
@@ -236,7 +238,22 @@ const Question = ({ setGameStart }) => {
                     >
                       {pronoun}
                     </th>
-                    <td className="px-6 py-4">{conjugation}</td>
+                    <td className="px-6 py-4">
+                      <div className="inline-flex items-center pl-0 pr-10 ">
+                        {answer === conjugation ? (
+                          <FontAwesomeIcon
+                            className="text-green-700 text-lg mr-1"
+                            icon={faCheck}
+                          />
+                        ) : (
+                          <FontAwesomeIcon
+                            className="text-red-700 text-lg mr-1"
+                            icon={faTimes}
+                          />
+                        )}
+                        {conjugation}
+                      </div>
+                    </td>
                     <td className="px-6 py-4"></td>
                   </tr>
                 </tbody>

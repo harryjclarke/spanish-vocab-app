@@ -10,7 +10,6 @@ const PersistLogin = () => {
   const token = useSelector(selectCurrentToken);
   const effectRan = useRef(false);
   const { pathname } = useLocation();
-  console.log(pathname);
 
   const [trueSuccess, setTrueSuccess] = useState(false);
 
@@ -41,7 +40,7 @@ const PersistLogin = () => {
     // eslint-disable-next-line
   }, []);
 
-  let allowedPaths = ["", "verbs", "login", "register", "play"];
+  let allowedPaths = ["", "verbs", "login", "register", "play", "settings"];
   let content;
   if (!persist) {
     // persist: no

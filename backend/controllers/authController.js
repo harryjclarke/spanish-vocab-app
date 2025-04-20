@@ -60,7 +60,8 @@ const login = asyncHandler(async (req, res) => {
 const refresh = (req, res) => {
   const cookies = req.cookies;
 
-  if (!cookies?.jwt) return res.status(401).json({ message: "Unauthorized" });
+  if (!cookies?.jwt)
+    return res.status(401).json({ message: "Unauthorized222" });
 
   const refreshToken = cookies.jwt;
 
@@ -74,11 +75,13 @@ const refresh = (req, res) => {
         username: decoded.username,
       }).exec();
 
-      if (!foundUser) return res.status(401).json({ message: "Unauthorized" });
+      if (!foundUser)
+        return res.status(401).json({ message: "Unauthorized333" });
 
       const accessToken = jwt.sign(
         {
           UserInfo: {
+            id: foundUser._id,
             username: foundUser.username,
           },
         },

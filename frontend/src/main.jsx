@@ -9,7 +9,6 @@ import {
 } from "react-router-dom";
 import Layout from "./components/Layout";
 import Public from "./components/Public";
-import Settings from "./components/Settings";
 import Login from "./features/auth/Login.jsx";
 import VerbsList from "./features/verbs/VerbsList";
 // import UsersList from "./features/users/UsersList";
@@ -22,6 +21,8 @@ import { store } from "./app/store";
 import { Provider } from "react-redux";
 import PersistLogin from "./features/auth/PersistLogin.jsx";
 import VerifyState from "./components/VerifyState.jsx";
+import UpdateUsernameForm from "./features/users/UpdateUsernameForm.jsx";
+import UpdatePasswordForm from "./features/users/UpdatePasswordForm.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -43,13 +44,16 @@ const router = createBrowserRouter(
             </Route>
 
             <Route path="settings">
-              <Route index element={<Settings />} />
               <Route path="edit-profile" element={<EditUserForm />} />
+              <Route
+                path="edit-profile/username"
+                element={<UpdateUsernameForm />}
+              />
+              <Route
+                path="edit-profile/password"
+                element={<UpdatePasswordForm />}
+              />
             </Route>
-            {/* 
-          <Route path="users">
-            <Route path="index" element={<UsersList />} />
-          </Route> */}
           </Route>
         </Route>
       </Route>
