@@ -57,14 +57,13 @@ const Question = () => {
   const answerSubmit = (e) => {
     e.preventDefault();
     if (answer === conjugation) {
-      console.log("good");
       let newScore = score + 1;
       setScore(newScore);
     } else {
-      console.log("bad");
     }
     // store score in score state
 
+    setAnswer("");
     const nextWordsIndex = wordsIndex + 1;
 
     if (nextWordsIndex >= numQuestions) {

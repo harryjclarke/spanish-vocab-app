@@ -12,7 +12,7 @@ import Public from "./components/Public";
 import Settings from "./components/Settings";
 import Login from "./features/auth/Login.jsx";
 import VerbsList from "./features/verbs/VerbsList";
-import UsersList from "./features/users/UsersList";
+// import UsersList from "./features/users/UsersList";
 import NewUserForm from "./features/users/NewUserForm";
 import Prefetch from "./features/auth/Prefetch";
 import Play from "./features/play/Play";
@@ -44,10 +44,10 @@ const router = createBrowserRouter(
             <Route index element={<Settings />} />
             <Route path="edit-profile" element={<EditUserForm />} />
           </Route>
-
+          {/* 
           <Route path="users">
             <Route path="index" element={<UsersList />} />
-          </Route>
+          </Route> */}
         </Route>
       </Route>
     </Route>
