@@ -23,6 +23,8 @@ import PersistLogin from "./features/auth/PersistLogin.jsx";
 import VerifyState from "./components/VerifyState.jsx";
 import UpdateUsernameForm from "./features/users/UpdateUsernameForm.jsx";
 import UpdatePasswordForm from "./features/users/UpdatePasswordForm.jsx";
+import ScoresList from "./features/score/ScoresList.jsx";
+import ScoreDetailed from "./features/score/ScoreDetailed.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -53,6 +55,11 @@ const router = createBrowserRouter(
                 path="edit-profile/password"
                 element={<UpdatePasswordForm />}
               />
+            </Route>
+
+            <Route path="scores">
+              <Route index element={<ScoresList />} />
+              <Route path=":id" element={<ScoreDetailed />} />
             </Route>
           </Route>
         </Route>

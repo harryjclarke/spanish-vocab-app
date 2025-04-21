@@ -40,7 +40,15 @@ const PersistLogin = () => {
     // eslint-disable-next-line
   }, []);
 
-  let allowedPaths = ["", "verbs", "login", "register", "play", "settings"];
+  let allowedPaths = [
+    "",
+    "verbs",
+    "login",
+    "register",
+    "play",
+    "settings",
+    "scores",
+  ];
   let content;
   if (!persist) {
     // persist: no

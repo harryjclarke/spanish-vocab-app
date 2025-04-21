@@ -125,10 +125,10 @@ const Navbar = () => {
                 onClick={() => {
                   setOpen(!open);
                 }}
-                to="/settings"
+                to="/scores"
                 className="block px-4 py-2 text-sm text-white"
               >
-                Preferences
+                Scores
               </Link>
               <Link
                 onClick={() => {

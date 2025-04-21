@@ -1,0 +1,38 @@
+import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { selectScoreById } from "./scoreApiSlice";
+
+const Score = ({ scoreId }) => {
+  const id = scoreId;
+  console.log(id);
+  const score = useSelector((state) => selectScoreById(state, id));
+  console.log(score);
+
+  const navigate = useNavigate();
+
+  if (score) {
+    console.log("hi");
+    const handleClick = () => navigate(`/scores/${scoreId}`);
+
+    return (
+      <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200">
+        <th
+          scope="row"
+          className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+        >
+          {score.createdAt.split("T")[0]}
+        </th>
+        <td className=" px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+          {score.score} / {score.numQuestions}
+        </td>
+
+        <td className="px-6 py-4 ">
+          <button className="icon-button table__button" onClick={handleClick}>
+            Details
+          </button>
+        </td>
+      </tr>
+    );
+  } else return null;
+};
+export default Score;

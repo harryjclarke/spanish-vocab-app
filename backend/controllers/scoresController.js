@@ -5,7 +5,12 @@ const asyncHandler = require("express-async-handler");
 // @route GET /users
 // @access Private
 const getUserScores = asyncHandler(async (req, res) => {
-  res.status(200).json({ message: "Yes" });
+  console.log(req.params.userId);
+  const scores = await Score.find().lean();
+  if (!scores?.length) {
+    return res.status(400).json({ message: "No scores found" });
+  }
+  res.json(scores);
 });
 
 // @desc Add user score
