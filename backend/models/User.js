@@ -15,7 +15,6 @@ const userSchema = new mongoose.Schema({
       default: "Basic",
     },
   ],
-  preferences: {},
 });
 
 module.exports = mongoose.model("User", userSchema);

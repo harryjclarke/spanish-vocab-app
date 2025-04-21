@@ -12,11 +12,6 @@ const UpdateUsernameForm = () => {
     useUpdateUserMutation();
 
   const [
-    deleteUser,
-    { isSuccess: isDelSuccess, isError: isDelError, error: delerror },
-  ] = useDeleteUserMutation();
-
-  const [
     sendLogout,
     { isSuccess: isLogoutSuccess, isError: isLogoutError, error: logoutError },
   ] = useSendLogoutMutation();
@@ -34,12 +29,12 @@ const UpdateUsernameForm = () => {
   }, [username]);
 
   useEffect(() => {
-    if (isSuccess || isDelSuccess) {
+    if (isSuccess) {
       setUsername("");
       setPassword("");
       navigate("/");
     }
-  }, [isSuccess, isDelSuccess, navigate]);
+  }, [isSuccess, navigate]);
 
   const onUsernameChanged = (e) => setUsername(e.target.value);
   const onPasswordChanged = (e) => setPassword(e.target.value);
