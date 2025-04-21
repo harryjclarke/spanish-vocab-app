@@ -24,9 +24,12 @@ const NewUserForm = () => {
   const [validUsername, setValidUsername] = useState(false);
   const [password, setPassword] = useState("");
   const [validPassword, setValidPassword] = useState(false);
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [errMsg, setErrMsg] = useState("");
   const [invalidUsernameMsg, setInvalidUsernameMsg] = useState("");
   const [invalidPasswordMsg, setInvalidPasswordMsg] = useState("");
+  const [invalidConfirmPasswordMsg, setInvalidConfirmPasswordMsg] =
+    useState("");
 
   useEffect(() => {
     userRef.current.focus();
@@ -56,12 +59,23 @@ const NewUserForm = () => {
     setPassword(e.target.value);
     setInvalidPasswordMsg("");
   };
+  const onConfirmPasswordChanged = (e) => {
+    setConfirmPassword(e.target.value);
+    setInvalidPasswordMsg("");
+
+    setInvalidConfirmPasswordMsg("");
+  };
 
   const canSave = [validUsername, validPassword].every(Boolean) && !isLoading;
 
   const onSaveUserClicked = async (e) => {
     e.preventDefault();
     if (canSave) {
+      if (password !== confirmPassword) {
+        setInvalidConfirmPasswordMsg("Passwords don't match");
+        return;
+      }
+
       try {
         await addNewUser({ username, password }).unwrap();
         const { accessToken } = await login({ username, password }).unwrap();
@@ -93,10 +107,16 @@ const NewUserForm = () => {
   const validPasswordMessageClass = invalidPasswordMsg
     ? "text-[#d4111e] font-thin ml-2 -mt-5 mb-2"
     : "";
+  const validConfirmPasswordMessageClass = invalidConfirmPasswordMsg
+    ? "text-[#d4111e] font-thin ml-2 -mt-5 mb-2"
+    : "";
   const validUserClass = invalidUsernameMsg
     ? "bg-gray-50 border border-red-500 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-red-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
     : "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500";
   const validPwdClass = invalidPasswordMsg
+    ? "bg-gray-50 border border-red-500 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-red-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+    : "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500";
+  const validConfirmPasswordClass = invalidConfirmPasswordMsg
     ? "bg-gray-50 border border-red-500 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-red-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
     : "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500";
 
@@ -135,12 +155,28 @@ const NewUserForm = () => {
               Password: <span className="nowrap">[4-12 chars incl. !@#$%]</span>
             </label>
             <input
-              className={`bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 ${validPwdClass}`}
+              className={`bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 ${validPwdClass} ${validConfirmPasswordClass}`}
               id="password"
               name="password"
               type="password"
               value={password}
               onChange={onPasswordChanged}
+            />
+          </div>
+          <div>
+            <label
+              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              htmlFor="password"
+            >
+              Confirm Password:
+            </label>
+            <input
+              className={`bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 ${validPwdClass} ${validConfirmPasswordClass}`}
+              id="confirmPassword"
+              name="confirmPassword"
+              type="password"
+              value={confirmPassword}
+              onChange={onConfirmPasswordChanged}
             />
           </div>
         </div>
@@ -152,6 +188,11 @@ const NewUserForm = () => {
         {invalidPasswordMsg && (
           <p className={validPasswordMessageClass} aria-live="assertive">
             {invalidPasswordMsg}
+          </p>
+        )}
+        {invalidConfirmPasswordMsg && (
+          <p className={validConfirmPasswordMessageClass} aria-live="assertive">
+            {invalidConfirmPasswordMsg}
           </p>
         )}
         <button
