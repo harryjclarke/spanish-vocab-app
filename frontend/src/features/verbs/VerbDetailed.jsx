@@ -61,22 +61,22 @@ const VerbDetailed = () => {
           </thead>
           <tbody>
             <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200">
-              <Conjugations tense="yo" obj={obj} />
+              <Conjugations pronoun="yo" obj={obj} />
             </tr>
             <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200">
-              <Conjugations tense="tu" obj={obj} />
+              <Conjugations pronoun="tu" obj={obj} />
             </tr>
             <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200">
-              <Conjugations tense="el/ella/usted" obj={obj} />
+              <Conjugations pronoun="el/ella/usted" obj={obj} />
             </tr>
             <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200">
-              <Conjugations tense="nosotros" obj={obj} />
+              <Conjugations pronoun="nosotros" obj={obj} />
             </tr>
             <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200">
-              <Conjugations tense="vosotros" obj={obj} />
+              <Conjugations pronoun="vosotros" obj={obj} />
             </tr>
             <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200">
-              <Conjugations tense="ellos/ellas/ustedes" obj={obj} />
+              <Conjugations pronoun="ellos/ellas/ustedes" obj={obj} />
             </tr>
           </tbody>
         </table>

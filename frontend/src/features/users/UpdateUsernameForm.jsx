@@ -81,10 +81,6 @@ const UpdateUsernameForm = () => {
     }
   };
 
-  // const onDeleteUserClicked = async () => {
-  //   await deleteUser({ id: user.id });
-  // };
-
   const errClass = errMsg ? "text-[#d4111e] font-thin ml-2 -mt-5 mb-2" : "";
 
   const validUserClass = invalidUsernameMsg
