@@ -25,7 +25,7 @@ const EditUserForm = () => {
       await sendLogout({}).unwrap();
       navigate("/");
     } catch (e) {
-      console.log(e);
+      // console.log(e);
     }
   };
 

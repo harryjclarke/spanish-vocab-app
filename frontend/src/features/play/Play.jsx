@@ -34,9 +34,6 @@ const Play = () => {
     let shuffled = verbsFiltered.sort(() => 0.5 - Math.random());
     let selected = shuffled.slice(0, numQuestions);
 
-    console.log(selected);
-    console.log(inPlayTenses);
-
     selected.forEach((ele) => {
       let arrayIndex = Math.floor(Math.random() * inPlayTenses.length);
       let tense = inPlayTenses[arrayIndex];

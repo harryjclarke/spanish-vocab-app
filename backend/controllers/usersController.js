@@ -26,7 +26,6 @@ const createNewUser = asyncHandler(async (req, res) => {
 
   // Check for duplicate
   const duplicate = await User.findOne({ username }).lean().exec();
-  console.log(duplicate);
   if (duplicate) {
     return res.status(409).json({ message: "This username already exists" });
   }
@@ -118,7 +117,6 @@ const deleteUser = asyncHandler(async (req, res) => {
   }
 
   const result = await user.deleteOne();
-  console.log(user);
 
   const reply = `Username ${user.username} with ID ${user._id} deleted`;
 

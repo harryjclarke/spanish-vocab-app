@@ -56,7 +56,6 @@ const UpdateUsernameForm = () => {
         await sendLogout({}).unwrap();
         navigate("/");
       } catch (err) {
-        console.log(err);
         if (!err.status || err.status === "FETCH_ERROR") {
           setErrMsg("No server response");
         } else if (

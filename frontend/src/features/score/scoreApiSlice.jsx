@@ -8,7 +8,7 @@ const initialState = scoreAdapter.getInitialState();
 export const scoreApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     getScores: builder.query({
-      query: (id) => ({ url: `/scores/${id}` }),
+      query: () => "/scores",
       validateStatus: (response, result) => {
         return response.status === 200 && !result.isError;
       },

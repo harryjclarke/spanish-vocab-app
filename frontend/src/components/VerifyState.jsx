@@ -10,9 +10,6 @@ const VerifyState = () => {
   const { pathname } = useLocation();
   const userAnswers = useSelector(selectAllUserAnswers);
 
-  console.log(pathname);
-  console.log(userAnswers);
-
   if (pathname !== "/play" && userAnswers) dispatch(clearUserAnswers());
 
   return <Outlet />;

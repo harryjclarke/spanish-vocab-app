@@ -7,7 +7,6 @@ import ScoreRow from "./ScoreRow";
 const ScoreDetailed = () => {
   const { id } = useParams();
   const score = useSelector((state) => selectScoreById(state, id));
-  console.log(score);
 
   const tableContent = score
     ? score.questions.map((answer) => <ScoreRow answer={answer} />)

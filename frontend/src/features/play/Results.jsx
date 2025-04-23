@@ -50,7 +50,7 @@ const Results = ({ score, numQuestions, setGameStart }) => {
     try {
       await addScore(scoreObj).unwrap();
     } catch (e) {
-      console.log(e);
+      // console.log(e);
       return;
     }
 

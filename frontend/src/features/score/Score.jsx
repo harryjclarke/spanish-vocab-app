@@ -1,17 +1,16 @@
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { selectScoreById } from "./scoreApiSlice";
+import useAuth from "../../hooks/useAuth";
 
 const Score = ({ scoreId }) => {
-  const id = scoreId;
-  console.log(id);
-  const score = useSelector((state) => selectScoreById(state, id));
-  console.log(score);
+  const { id } = useAuth();
 
+  const score = useSelector((state) => selectScoreById(state, scoreId));
   const navigate = useNavigate();
 
   if (score) {
-    console.log("hi");
+    if (score.user !== id) return;
     const handleClick = () => navigate(`/scores/${scoreId}`);
 
     return (

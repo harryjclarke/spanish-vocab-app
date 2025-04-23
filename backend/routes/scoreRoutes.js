@@ -7,6 +7,6 @@ const verifyJWT = require("../middleware/verifyJWT");
 
 router.route("/").post(verifyJWT, scoresController.addScore);
 
-router.route("/:userId").get(verifyJWT, scoresController.getUserScores);
+router.route("/").get(verifyJWT, scoresController.getUserScores);
 
 module.exports = router;

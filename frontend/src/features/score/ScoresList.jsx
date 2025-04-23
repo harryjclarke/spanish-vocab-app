@@ -3,15 +3,13 @@ import Score from "./Score";
 import useAuth from "../../hooks/useAuth";
 
 const ScoresList = () => {
-  const { id } = useAuth();
-
   const {
     data: scores,
     isLoading,
     isSuccess,
     isError,
     error,
-  } = useGetScoresQuery(id, {
+  } = useGetScoresQuery("scoresList", {
     pollingInterval: 60000,
     refetchOnFocus: true,
     refetchOnMountOrArgChange: true,
