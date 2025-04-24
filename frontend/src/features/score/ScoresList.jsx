@@ -3,6 +3,8 @@ import Score from "./Score";
 import useAuth from "../../hooks/useAuth";
 
 const ScoresList = () => {
+  const { id } = useAuth();
+
   const {
     data: scores,
     isLoading,
@@ -27,6 +29,22 @@ const ScoresList = () => {
   }
 
   if (isSuccess) {
+    console.log(scores);
+
+    let userScores = false;
+    Object.values(scores.entities).forEach((ele) => {
+      if (ele.user === id) userScores = true;
+    });
+
+    if (!userScores)
+      return (
+        <div className="bg-gray-900 h-[91.9vh] flex flex-col items-center pt-20">
+          <h1 className="text-lg text-gray-200 lg:text-xl dark:text-gray-200">
+            No scores saved
+          </h1>
+        </div>
+      );
+
     const { ids } = scores;
 
     const tableContent = ids?.length

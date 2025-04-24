@@ -1,7 +1,16 @@
 import { createSelector, createEntityAdapter } from "@reduxjs/toolkit";
 import { apiSlice } from "../../app/api/apiSlice";
 
-const scoreAdapter = createEntityAdapter({});
+const scoreAdapter = createEntityAdapter({
+  sortComparer: (a, b) => {
+    if (a.createdAt > b.createdAt) {
+      return -1;
+    } else if (a.createdAt < b.createdAt) {
+      return -1;
+    }
+    return 0;
+  },
+});
 
 const initialState = scoreAdapter.getInitialState();
 
