@@ -1,6 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { useGetVerbsQuery } from "./verbsApiSlice";
+import useTitle from "../../hooks/useTitle";
 import Conjugations from "./Conjugations";
 
 const VerbDetailed = () => {
@@ -10,6 +11,8 @@ const VerbDetailed = () => {
       verb: data?.entities[id],
     }),
   });
+
+  useTitle(`Verb Trainer - ${verb.infinitive}`);
 
   let obj = {
     yo: [],

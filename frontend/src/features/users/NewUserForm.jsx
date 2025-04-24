@@ -1,16 +1,17 @@
 import { useRef, useState, useEffect } from "react";
 import { useAddNewUserMutation } from "./usersApiSlice";
 import { useNavigate } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSave } from "@fortawesome/free-solid-svg-icons";
 import { useLoginMutation } from "../auth/authApiSlice";
 import { setCredentials } from "../auth/authSlice";
 import { useDispatch } from "react-redux";
+import useTitle from "../../hooks/useTitle";
 
 const USER_REGEX = /^[A-z0-9]{3,20}$/;
 const PWD_REGEX = /^[A-z0-9!@#$%]{4,12}$/;
 
 const NewUserForm = () => {
+  useTitle("Verb Trainer - Register");
+
   const userRef = useRef();
 
   const [addNewUser, { isLoading, isSuccess, isError, error }] =
@@ -123,6 +124,9 @@ const NewUserForm = () => {
   const content = (
     <div className="bg-gray-900 h-[91.9vh] flex flex-col items-center pt-20">
       <form className="w-[30%]" onSubmit={onSaveUserClicked}>
+        <h1 className="text-lg text-gray-200 lg:text-xl dark:text-gray-200 mb-4 font-bold">
+          Register
+        </h1>
         <div class="grid gap-6 mb-6 md:grid-cols-1">
           <div>
             <label

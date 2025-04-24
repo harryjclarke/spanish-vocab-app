@@ -2,19 +2,27 @@ import { useState } from "react";
 import Question from "./Question";
 import Options from "./Options";
 import { selectAllOptions } from "./playSlice";
-import { selectAllVerbs } from "../verbs/verbsApiSlice";
+import { useGetVerbsQuery } from "../verbs/verbsApiSlice";
 import { useSelector } from "react-redux";
 import { setInPlayVerbs } from "./playSlice";
 import { useDispatch } from "react-redux";
+import useTitle from "../../hooks/useTitle";
 
 const Play = () => {
+  useTitle("Verb Trainer - Play");
+
   const [gameStart, setGameStart] = useState(false);
 
   const options = useSelector(selectAllOptions);
-  const verbs = useSelector(selectAllVerbs);
+  const { data, isLoading, isSuccess, isError, error } =
+    useGetVerbsQuery("verbsList");
+
   const dispatch = useDispatch();
 
-  if (options && verbs) {
+  if (options && data) {
+    let verbs = Object.values(data.entities);
+    console.log(options);
+    console.log(verbs);
     const numQuestions = options.numQuestions;
     let inPlayWords = [];
     let inPlayTenses = [];
@@ -57,7 +65,6 @@ const Play = () => {
       })
     );
   }
-
   const handleClick = () => {
     // console.log(numQuestions);
     setGameStart(true);

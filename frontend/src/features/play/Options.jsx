@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { setInPlayVerbs } from "./playSlice";
 import { useDispatch } from "react-redux";
-import { selectAllOptions } from "./playSlice";
-import { selectAllVerbs } from "../verbs/verbsApiSlice";
-import { useSelector } from "react-redux";
+// import useTitle from "../../hooks/useTitle";
 
 const Options = ({ onClick }) => {
+  // useTitle("Verb Trainer - Play");
+
   const [numQuestions, setNumQuestions] = useState(10);
   const [presentChecked, setPresentChecked] = useState(true);
   const [preteriteChecked, setPreteriteChecked] = useState(true);

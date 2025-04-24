@@ -1,7 +1,10 @@
 import { useGetVerbsQuery } from "./verbsApiSlice";
+import useTitle from "../../hooks/useTitle";
 import Verb from "./Verb";
 
 const VerbsList = () => {
+  useTitle("Verb Trainer - Verbs");
+
   const {
     data: verbs,
     isLoading,

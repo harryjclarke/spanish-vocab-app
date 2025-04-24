@@ -2,6 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { useGetScoresQuery } from "./scoreApiSlice";
 import ScoreRow from "./ScoreRow";
+import useTitle from "../../hooks/useTitle";
 
 const ScoreDetailed = () => {
   const { id } = useParams();
@@ -12,6 +13,8 @@ const ScoreDetailed = () => {
       score: data?.entities[id],
     }),
   });
+
+  useTitle(`Verb Trainer - Score ${score.createdAt}`);
 
   const tableContent = score
     ? score.questions.map((answer) => <ScoreRow answer={answer} />)

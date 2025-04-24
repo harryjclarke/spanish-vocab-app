@@ -5,7 +5,6 @@ const asyncHandler = require("express-async-handler");
 // @route GET /users
 // @access Private
 const getUserScores = asyncHandler(async (req, res) => {
-  // if (!req.params.userId) res.sendStatus(509);
   const scores = await Score.find().select().lean();
   if (!scores?.length) {
     return res.status(400).json({ message: "No scores found" });

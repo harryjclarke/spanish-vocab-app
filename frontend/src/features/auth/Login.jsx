@@ -5,8 +5,10 @@ import { useDispatch } from "react-redux";
 import { setCredentials } from "./authSlice";
 import { useLoginMutation } from "./authApiSlice";
 import usePersist from "../../hooks/usePersist";
+import useTitle from "../../hooks/useTitle";
 
 const Login = () => {
+  useTitle("Verb Trainer - Login");
   const userRef = useRef();
   const errRef = useRef();
   const [username, setUsername] = useState("");
@@ -70,6 +72,9 @@ const Login = () => {
       </p> */}
 
       <form className="w-[30%]" onSubmit={handleSubmit}>
+        <h1 className="text-lg text-gray-200 lg:text-xl dark:text-gray-200 mb-4 font-bold">
+          Login
+        </h1>
         <div class="grid gap-6 mb-6 md:grid-cols-1">
           <div>
             <label

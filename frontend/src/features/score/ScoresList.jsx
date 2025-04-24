@@ -1,8 +1,11 @@
 import { useGetScoresQuery } from "./scoreApiSlice";
 import Score from "./Score";
 import useAuth from "../../hooks/useAuth";
+import useTitle from "../../hooks/useTitle";
 
 const ScoresList = () => {
+  useTitle("Verb Trainer - Scores");
+
   const { id } = useAuth();
 
   const {
