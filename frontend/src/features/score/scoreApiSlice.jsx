@@ -17,10 +17,12 @@ const initialState = scoreAdapter.getInitialState();
 export const scoreApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     getScores: builder.query({
-      query: () => "/scores",
-      validateStatus: (response, result) => {
-        return response.status === 200 && !result.isError;
-      },
+      query: () => ({
+        url: "/scores",
+        validateStatus: (response, result) => {
+          return response.status === 200 && !result.isError;
+        },
+      }),
       keepUnusedDataFor: 5,
       transformResponse: (responseData) => {
         const loadedScores = responseData.map((score) => {

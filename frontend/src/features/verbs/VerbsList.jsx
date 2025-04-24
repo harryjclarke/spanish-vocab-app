@@ -12,7 +12,7 @@ const VerbsList = () => {
     pollingInterval: 60000,
     refetchOnFocus: true,
     refetchOnMountOrArgChange: true,
-  }); //maybe need to put options here?
+  });
 
   let content;
 

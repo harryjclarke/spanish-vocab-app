@@ -1,12 +1,17 @@
 import React from "react";
-import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { selectScoreById } from "./scoreApiSlice";
+import { useGetScoresQuery } from "./scoreApiSlice";
 import ScoreRow from "./ScoreRow";
 
 const ScoreDetailed = () => {
   const { id } = useParams();
-  const score = useSelector((state) => selectScoreById(state, id));
+  // const score = useSelector((state) => selectScoreById(state, id));
+
+  const { score } = useGetScoresQuery("scoresList", {
+    selectFromResult: ({ data }) => ({
+      score: data?.entities[id],
+    }),
+  });
 
   const tableContent = score
     ? score.questions.map((answer) => <ScoreRow answer={answer} />)

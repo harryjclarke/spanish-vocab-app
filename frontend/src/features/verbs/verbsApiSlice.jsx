@@ -8,10 +8,12 @@ const initialState = verbsAdapter.getInitialState();
 export const verbsApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     getVerbs: builder.query({
-      query: () => "/verbs",
-      validateStatus: (response, result) => {
-        return response.status === 200 && !result.isError;
-      },
+      query: () => ({
+        url: "/verbs",
+        validateStatus: (response, result) => {
+          return response.status === 200 && !result.isError;
+        },
+      }),
       keepUnusedDataFor: 5,
       transformResponse: (responseData) => {
         const loadedVerbs = responseData.map((verb) => {

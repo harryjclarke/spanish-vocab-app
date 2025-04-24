@@ -1,10 +1,12 @@
 import { useNavigate } from "react-router-dom";
-
-import { useSelector } from "react-redux";
-import { selectVerbById } from "./verbsApiSlice";
+import { useGetVerbsQuery } from "./verbsApiSlice";
 
 const Verb = ({ verbId }) => {
-  const verb = useSelector((state) => selectVerbById(state, verbId));
+  const { verb } = useGetVerbsQuery("verbsList", {
+    selectFromResult: ({ data }) => ({
+      verb: data?.entities[verbId],
+    }),
+  });
 
   const navigate = useNavigate();
 

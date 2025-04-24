@@ -1,12 +1,17 @@
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { selectScoreById } from "./scoreApiSlice";
+import { useGetScoresQuery } from "./scoreApiSlice";
 import useAuth from "../../hooks/useAuth";
 
 const Score = ({ scoreId }) => {
   const { id } = useAuth();
 
-  const score = useSelector((state) => selectScoreById(state, scoreId));
+  const { score } = useGetScoresQuery("scoresList", {
+    selectFromResult: ({ data }) => ({
+      score: data?.entities[scoreId],
+    }),
+  });
+
+  // const score = useSelector((state) => selectScoreById(state, scoreId));
   const navigate = useNavigate();
 
   if (score) {

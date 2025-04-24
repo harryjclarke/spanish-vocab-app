@@ -11,7 +11,6 @@ import Layout from "./components/Layout";
 import Public from "./components/Public";
 import Login from "./features/auth/Login.jsx";
 import VerbsList from "./features/verbs/VerbsList";
-// import UsersList from "./features/users/UsersList";
 import NewUserForm from "./features/users/NewUserForm";
 import Prefetch from "./features/auth/Prefetch";
 import Play from "./features/play/Play";

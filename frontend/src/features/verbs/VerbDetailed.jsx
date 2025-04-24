@@ -1,12 +1,15 @@
 import React from "react";
-import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { selectVerbById } from "./verbsApiSlice";
+import { useGetVerbsQuery } from "./verbsApiSlice";
 import Conjugations from "./Conjugations";
 
 const VerbDetailed = () => {
   const { id } = useParams();
-  const verb = useSelector((state) => selectVerbById(state, id));
+  const { verb } = useGetVerbsQuery("verbsList", {
+    selectFromResult: ({ data }) => ({
+      verb: data?.entities[id],
+    }),
+  });
 
   let obj = {
     yo: [],
