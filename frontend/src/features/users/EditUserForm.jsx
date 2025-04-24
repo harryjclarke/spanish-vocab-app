@@ -32,8 +32,8 @@ const EditUserForm = () => {
   return (
     <div className="bg-gray-900 h-[91.9vh] flex flex-col items-center pt-20">
       <div className="w-[10%] relative overflow-x-auto pt-10">
-        <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-          <thead className="flex flex-col justify-center text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+        <table className="w-full text-sm text-left rtl:text-right text-gray-400">
+          <thead className="flex flex-col justify-center text-xs uppercase bg-gray-700 text-gray-400">
             <tr className="flex justify-center">
               <th scope="col" className="px-6 py-3">
                 <Link to="/settings/edit-profile/username">

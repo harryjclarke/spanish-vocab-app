@@ -57,8 +57,8 @@ const Login = () => {
 
   const errClass = errMsg ? "text-[#d4111e] font-thin ml-2 -mt-5 mb-2" : "";
   const inputFieldClass = errMsg
-    ? "bg-gray-50 border border-red-500 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-red-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-    : "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500";
+    ? "border text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 bg-gray-700 border-red-600 dark:placeholder-gray-400 text-white"
+    : "border text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 bg-gray-700 border-gray-600 dark:placeholder-gray-400 text-white";
 
   if (isLoading)
     return (
@@ -67,10 +67,6 @@ const Login = () => {
 
   const content = (
     <div className="bg-gray-900 h-[91.9vh] flex flex-col items-center pt-20 ">
-      {/* <p ref={errRef} className={errClass} aria-live="assertive">
-        {errMsg}
-      </p> */}
-
       <form className="w-[30%]" onSubmit={handleSubmit}>
         <h1 className="text-lg text-gray-200 lg:text-xl dark:text-gray-200 mb-4 font-bold">
           Login
@@ -78,7 +74,7 @@ const Login = () => {
         <div class="grid gap-6 mb-6 md:grid-cols-1">
           <div>
             <label
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              className="block mb-2 text-sm font-medium text-white"
               htmlFor="username"
             >
               Username:
@@ -97,7 +93,7 @@ const Login = () => {
           <div>
             <label
               htmlFor="password"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              className="block mb-2 text-sm font-medium text-white"
             >
               Password:
             </label>
@@ -116,7 +112,7 @@ const Login = () => {
         </p>
         <div className="flex items-start mb-6">
           <label
-            className="ml-1 text-sm font-medium text-gray-900 dark:text-gray-300"
+            className="ml-1 text-sm font-medium text-gray-300"
             htmlFor="persist"
           >
             <div className="flex items-center h-5">
@@ -125,7 +121,7 @@ const Login = () => {
                 id="persist"
                 onChange={handleToggle}
                 checked={persist}
-                className="w-4 h-4 border border-gray-300 rounded-sm bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800"
+                className="w-4 h-4 border rounded-sm focus:ring-3 bg-gray-700 border-gray-600 focus:ring-blue-600 dark:ring-offset-gray-800"
               />
               <p className="pl-2">Trust This Device</p>
             </div>

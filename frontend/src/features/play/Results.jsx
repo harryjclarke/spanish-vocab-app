@@ -63,11 +63,11 @@ const Results = ({ score, numQuestions, setGameStart }) => {
     <div className="bg-gray-900 h-[91.9vh] flex flex-col items-center">
       <div className="flex justify-center w-[18%]">
         <div className="mt-16 w-full">
-          <h1 className="text-center mb-4 text-2xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-4xl dark:text-white">
+          <h1 className="text-center mb-4 text-2xl font-extrabold leading-none tracking-tight md:text-3xl lg:text-4xl text-white">
             You Scored:
           </h1>
           <div className="flex justify-center">
-            <div className="mt-6 text-gray-900 dark:text-white text-lg">
+            <div className="mt-6 text-white text-lg">
               {score} / {numQuestions}
             </div>
           </div>
@@ -101,8 +101,8 @@ const Results = ({ score, numQuestions, setGameStart }) => {
             Scores Saved!
           </p>
         )}
-        <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-          <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+        <table className="w-full text-sm text-left rtl:text-right text-gray-400">
+          <thead className="text-xs uppercase bg-gray-700 text-gray-400">
             <tr>
               <th scope="col" className="px-6 py-3">
                 Question

@@ -35,14 +35,6 @@ const Navbar = () => {
   const [sendLogout, { isLoading, isSuccess, isError, error }] =
     useSendLogoutMutation();
 
-  // const closeDropdown = (e) => {
-  //   if (open && !dropdownRef.current?.contains(e.target)) {
-  //     setOpen(false);
-  //   } else if (!open && dropdownRef.current?.contains(e.target)) {
-  //     setOpen(true);
-  //   }
-  // };
-
   const sendLogoutHandler = async () => {
     try {
       await sendLogout({}).unwrap();
@@ -53,8 +45,6 @@ const Navbar = () => {
   };
 
   const token = useSelector(selectCurrentToken);
-
-  // document.addEventListener("mousedown", closeDropdown);
 
   let buttons;
   if (!token) {

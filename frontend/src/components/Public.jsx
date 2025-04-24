@@ -11,15 +11,15 @@ const Public = () => {
     <div className="bg-gray-900 flex justify-center h-[91.9vh]">
       <div className="flex flex-col justify-around items-center">
         <div className="flex flex-col items-center h-[5%]">
-          <h1 className="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
+          <h1 className="mb-4 text-4xl font-extrabold leading-none tracking-tight md:text-5xl lg:text-6xl text-white">
             Welcome to Spanish Project
           </h1>
 
-          <p className="text-lg text-gray-500 lg:text-xl dark:text-gray-400">
+          <p className="text-lg  lg:text-xl text-gray-400">
             A place to test yourself on Spanish verb conjugations.
           </p>
 
-          <p className="text-lg text-gray-500 lg:text-xl dark:text-gray-400">
+          <p className="text-lg  lg:text-xl text-gray-400">
             Check out the verbs section for a full list of verbs. Be sure to
             sign up if you want to save your score!
           </p>

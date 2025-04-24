@@ -50,22 +50,22 @@ const Options = ({ onClick }) => {
 
   return (
     <div className="bg-gray-900 h-[91.9vh] flex flex-col items-center pt-20">
-      <h1 className="text-lg text-gray-200 lg:text-xl dark:text-gray-200">
+      <h1 className="text-lg text-gray-200 lg:text-xl">
         Select which tenses you want to be quizzed on.
       </h1>
       <form className="pt-10 max-w-96" onSubmit={onSubmitForm}>
-        <div className="text- font-medium text-gray-900 dark:text-gray-300 -mt-3 mb-1.5 ml-1">
+        <div className="text- font-medium text-gray-300 -mt-3 mb-1.5 ml-1">
           Tenses:
         </div>
         <div className="grid gap-4 mb-6 md:grid-cols-2">
           <div className="flex items-start mb-6">
             <label
-              className="ml-1 text-sm font-medium text-gray-900 dark:text-gray-300"
+              className="ml-1 text-sm font-medium text-gray-300"
               htmlFor="present"
             >
               <div className="flex items-center h-5">
                 <input
-                  className="w-4 h-4 border border-gray-300 rounded-sm bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800"
+                  className="w-4 h-4 border rounded-sm focus:ring-3 bg-gray-700 border-gray-600 focus:ring-blue-600 dark:ring-offset-gray-800"
                   type="checkbox"
                   id="present"
                   name="present"
@@ -78,12 +78,12 @@ const Options = ({ onClick }) => {
           </div>
           <div className="flex items-start mb-6">
             <label
-              className="ml-1 text-sm font-medium text-gray-900 dark:text-gray-300"
+              className="ml-1 text-sm font-medium text-gray-300"
               htmlFor="preterite"
             >
               <div className="flex items-center h-5">
                 <input
-                  className="w-4 h-4 border border-gray-300 rounded-sm bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800"
+                  className="w-4 h-4 border rounded-sm focus:ring-3 bg-gray-700 border-gray-600 focus:ring-blue-600 dark:ring-offset-gray-800"
                   type="checkbox"
                   id="preterite"
                   name="preterite"
@@ -96,12 +96,12 @@ const Options = ({ onClick }) => {
           </div>
           <div className="flex items-start mb-6">
             <label
-              className="ml-1 text-sm font-medium text-gray-900 dark:text-gray-300"
+              className="ml-1 text-sm font-medium text-gray-300"
               htmlFor="imperfect"
             >
               <div className="flex items-center h-5">
                 <input
-                  className="w-4 h-4 border border-gray-300 rounded-sm bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800"
+                  className="w-4 h-4 border rounded-sm focus:ring-3 bg-gray-700 border-gray-600 focus:ring-blue-600 dark:ring-offset-gray-800"
                   type="checkbox"
                   id="imperfect"
                   name="imperfect"
@@ -114,12 +114,12 @@ const Options = ({ onClick }) => {
           </div>
           <div className="flex items-start mb-6">
             <label
-              className="ml-1 text-sm font-medium text-gray-900 dark:text-gray-300"
+              className="ml-1 text-sm font-medium text-gray-300"
               htmlFor="future"
             >
               <div className="flex items-center h-5">
                 <input
-                  className="w-4 h-4 border border-gray-300 rounded-sm bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800"
+                  className="w-4 h-4 border rounded-sm focus:ring-3 bg-gray-700 border-gray-600 focus:ring-blue-600 dark:ring-offset-gray-800"
                   type="checkbox"
                   id="future"
                   name="future"
@@ -132,12 +132,12 @@ const Options = ({ onClick }) => {
           </div>
           <div className="flex items-start mb-6">
             <label
-              className="ml-1 text-sm font-medium text-gray-900 dark:text-gray-300"
+              className="ml-1 text-sm font-medium text-gray-300"
               htmlFor="conditional"
             >
               <div className="flex items-center h-5">
                 <input
-                  className="w-4 h-4 border border-gray-300 rounded-sm bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800"
+                  className="w-4 h-4 border rounded-sm  focus:ring-3 bg-gray-700 border-gray-600 focus:ring-blue-600 dark:ring-offset-gray-800"
                   type="checkbox"
                   id="conditional"
                   name="conditional"
@@ -150,12 +150,12 @@ const Options = ({ onClick }) => {
           </div>
           <div className="flex items-start mb-6">
             <label
-              className="ml-1 text-sm font-medium text-gray-900 dark:text-gray-300"
+              className="ml-1 text-sm font-medium text-gray-300"
               htmlFor="irregular"
             >
               <div className="flex items-center h-5">
                 <input
-                  className="w-4 h-4 border border-gray-300 rounded-sm bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800"
+                  className="w-4 h-4 border rounded-sm focus:ring-3 bg-gray-700 border-gray-600 focus:ring-blue-600 dark:ring-offset-gray-800"
                   type="checkbox"
                   id="irregular"
                   name="irregular"
@@ -169,14 +169,14 @@ const Options = ({ onClick }) => {
         </div>
         <div className="flex items-center -mt-4">
           <label
-            className="mr-4 whitespace-nowrap block  text-sm font-medium text-gray-900 dark:text-white"
+            className="mr-4 whitespace-nowrap block  text-sm font-medium text-white"
             htmlFor="numQuestions"
           >
             Number of Questions:
           </label>
 
           <input
-            className="bg-gray-50 border border-gray-300 w-full text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className="border w-full text-sm rounded-lg  focus:border-blue-500 block  p-2.5 bg-gray-700 border-gray-600 dark:placeholder-gray-400 text-white focus:ring-blue-500"
             type="number"
             value={numQuestions}
             id="numQuestions"

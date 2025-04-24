@@ -53,8 +53,6 @@ const Question = ({ setGameStart }) => {
     userRef.current.focus();
   }, []);
 
-  const correctClass = answer === conjugation ? "border-green" : "border-red";
-
   const onAnswerChanged = (e) => setAnswer(e.target.value);
 
   const onCharacterButtonClicked = (e) => {
@@ -108,45 +106,45 @@ const Question = ({ setGameStart }) => {
     content = (
       <div className="bg-gray-900 h-[91.9vh] flex flex-col items-center pt-20">
         <div className="flex justify-center w-[30%] relative overflow-x-auto pt-10">
-          <table className="w-[90%] text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+          <table className="w-[90%] text-sm text-left rtl:text-right  text-gray-400">
             <tbody>
-              <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200">
+              <tr className=" border-b bg-gray-800 border-gray-700 ">
                 <th
                   scope="row"
-                  className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                  className="px-6 py-4 font-medium  whitespace-nowrap text-white"
                 >
                   Verb
                 </th>
                 <td className="px-6 py-4">{infinitive}</td>
               </tr>
-              <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200">
+              <tr className=" border-b bg-gray-800 border-gray-700 ">
                 <th
                   scope="row"
-                  className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                  className="px-6 py-4 font-medium  whitespace-nowrap text-white"
                 >
                   Definition
                 </th>
                 <td className="px-6 py-4">{definition}</td>
               </tr>
-              <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200">
+              <tr className=" border-b bg-gray-800 border-gray-700 ">
                 <th
                   scope="row"
-                  className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                  className="px-6 py-4 font-medium  whitespace-nowrap text-white"
                 >
                   Tense
                 </th>
                 <td className="px-6 py-4">{tense}</td>
               </tr>
-              <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200">
+              <tr className=" border-b bg-gray-800 border-gray-700">
                 <th
                   scope="row"
-                  className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                  className="px-6 py-4 font-medium  whitespace-nowrap text-white w-[32%]"
                 >
                   {pronoun}
                 </th>
                 <td className="pl-6 py-4">
                   <form>
-                    <div className="flex items-center">
+                    <div className="flex items-center ">
                       <input
                         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-sm focus:ring-blue-500 focus:border-blue-500 block "
                         ref={userRef}
@@ -160,10 +158,10 @@ const Question = ({ setGameStart }) => {
                         {!showAnswer ? (
                           <button
                             onClick={displayResults}
-                            className="ml-16 rounded bg-blue-700 hover:bg-blue-800 py-2 px-3"
+                            className="ml-16 rounded bg-blue-700 hover:bg-blue-800 py-2 px-3 "
                           >
                             <FontAwesomeIcon
-                              className="text-lg"
+                              className="text-lg text-white"
                               icon={faArrowRight}
                             />
                           </button>
@@ -173,7 +171,7 @@ const Question = ({ setGameStart }) => {
                             className="ml-16 rounded bg-blue-700 hover:bg-blue-800 py-2 px-3"
                           >
                             <FontAwesomeIcon
-                              className="text-lg"
+                              className="text-lg text-white"
                               icon={faArrowRight}
                             />
                           </button>
@@ -228,13 +226,13 @@ const Question = ({ setGameStart }) => {
           ) : (
             <div className="flex justify-center w-[30%] relative overflow-x-auto pt-10">
               <table
-                className={`w-[90%] text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400  mb-10`}
+                className={`w-[90%] text-sm text-left rtl:text-right text-gray-400  mb-10`}
               >
                 <tbody>
-                  <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200">
+                  <tr className="border-b bg-gray-800 border-gray-700">
                     <th
                       scope="row"
-                      className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white border-red"
+                      className="px-6 py-4 font-medium whitespace-nowrap text-white border-red"
                     >
                       {pronoun}
                     </th>

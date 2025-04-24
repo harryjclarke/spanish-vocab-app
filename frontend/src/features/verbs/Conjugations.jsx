@@ -1,7 +1,7 @@
 const Conjugations = (props) => {
   return (
     <>
-      <td className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+      <td className="px-6 py-4 font-medium whitespace-nowrap text-white">
         {props.pronoun}
       </td>
       <td className="px-6 py-4">{props.obj[props.pronoun][0]}</td>

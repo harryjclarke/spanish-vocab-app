@@ -25,18 +25,18 @@ const ScoreDetailed = () => {
       <div className="flex justify-center w-[18%]">
         <div className="mt-16 w-full">
           <div className="flex flex-col justify-center items-center">
-            <div className="mt-6 text-gray-900 dark:text-white text-lg font-bold">
+            <div className="mt-6 text-white text-lg font-bold">
               {score.createdAt.split("T")[0]}
             </div>
-            <div className="mt-2 text-gray-900 dark:text-white text-lg font-thin">
-              {score.score} / {score.numQuestions}
+            <div className="mt-2 text-white text-lg font-thin">
+              Score: {score.score} / {score.numQuestions}
             </div>
           </div>
         </div>
       </div>
       <div className="w-[50%] relative overflow-x-auto pt-10">
-        <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-          <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+        <table className="w-full text-sm text-left rtl:text-right text-gray-400">
+          <thead className="text-xs uppercase bg-gray-700 text-gray-400">
             <tr>
               <th scope="col" className="px-6 py-3">
                 Question

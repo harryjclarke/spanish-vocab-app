@@ -81,8 +81,8 @@ const UpdatePasswordForm = () => {
   const errClass = errMsg ? "text-[#d4111e] font-thin ml-2 -mt-5 mb-2" : "";
 
   const validPassClass = invalidPasswordMsg
-    ? "bg-gray-50 border border-red-500 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-red-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-    : "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500";
+    ? "border text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 bg-gray-700 border-red-500 dark:placeholder-gray-400 text-white"
+    : "border text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 bg-gray-700 border-gray-600 dark:placeholder-gray-400 text-white ";
   const validPasswordMessageClass = invalidPasswordMsg
     ? "text-[#d4111e] font-thin ml-2 -mt-5 -mb-1"
     : "";
@@ -92,13 +92,13 @@ const UpdatePasswordForm = () => {
         <div class="grid gap-6 mb-6 md:grid-cols-1">
           <div>
             <label
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              className="block mb-2 text-sm font-medium text-white"
               htmlFor="password"
             >
               Current Password <span className="nowrap"></span>
             </label>
             <input
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className="border text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 bg-gray-700 border-gray-600 dark:placeholder-gray-400 text-white"
               id="password"
               name="password"
               type="password"
@@ -109,7 +109,7 @@ const UpdatePasswordForm = () => {
           </div>
           <div>
             <label
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              className="block mb-2 text-sm font-medium text-white"
               htmlFor="newPassword"
             >
               New Password:

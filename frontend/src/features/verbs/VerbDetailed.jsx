@@ -12,6 +12,8 @@ const VerbDetailed = () => {
     }),
   });
 
+  const rowClass = "border-b bg-gray-800 border-gray-700";
+
   useTitle(`Verb Trainer - ${verb.infinitive}`);
 
   let obj = {
@@ -38,12 +40,12 @@ const VerbDetailed = () => {
 
   return (
     <div className="bg-gray-900 h-[91.9vh] flex flex-col items-center pt-20">
-      <h1 className="text-lg text-gray-200 lg:text-xl dark:text-gray-200">
+      <h1 className="text-lg text-gray-200 lg:text-xl">
         {verb.infinitive} - {verb.definition}
       </h1>
       <div className="w-[70%] relative overflow-x-auto pt-10">
-        <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-          <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+        <table className="w-full text-sm text-left rtl:text-right text-gray-400">
+          <thead className="text-xs  uppercase bg-gray-700 text-gray-400">
             <tr>
               <th scope="col" className="px-6 py-3">
                 Subject
@@ -66,22 +68,22 @@ const VerbDetailed = () => {
             </tr>
           </thead>
           <tbody>
-            <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200">
+            <tr className={rowClass}>
               <Conjugations pronoun="yo" obj={obj} />
             </tr>
-            <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200">
+            <tr className={rowClass}>
               <Conjugations pronoun="tu" obj={obj} />
             </tr>
-            <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200">
+            <tr className={rowClass}>
               <Conjugations pronoun="el/ella/usted" obj={obj} />
             </tr>
-            <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200">
+            <tr className={rowClass}>
               <Conjugations pronoun="nosotros" obj={obj} />
             </tr>
-            <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200">
+            <tr className={rowClass}>
               <Conjugations pronoun="vosotros" obj={obj} />
             </tr>
-            <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200">
+            <tr className={rowClass}>
               <Conjugations pronoun="ellos/ellas/ustedes" obj={obj} />
             </tr>
           </tbody>

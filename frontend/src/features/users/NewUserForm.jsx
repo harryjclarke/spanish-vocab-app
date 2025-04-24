@@ -112,25 +112,25 @@ const NewUserForm = () => {
     ? "text-[#d4111e] font-thin ml-2 -mt-5 mb-2"
     : "";
   const validUserClass = invalidUsernameMsg
-    ? "bg-gray-50 border border-red-500 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-red-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-    : "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500";
+    ? "border text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 bg-gray-700 border-red-500 dark:placeholder-gray-400 text-white"
+    : "border text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 bg-gray-700 border-gray-600 dark:placeholder-gray-400 text-white";
   const validPwdClass = invalidPasswordMsg
-    ? "bg-gray-50 border border-red-500 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-red-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-    : "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500";
+    ? "border text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 bg-gray-700 border-red-500 dark:placeholder-gray-400 text-white"
+    : "border text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 bg-gray-700 border-gray-600 dark:placeholder-gray-400 text-white";
   const validConfirmPasswordClass = invalidConfirmPasswordMsg
-    ? "bg-gray-50 border border-red-500 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-red-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-    : "bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500";
+    ? "border text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 bg-gray-700 border-red-500 dark:placeholder-gray-400 text-white"
+    : "border text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 bg-gray-700 border-gray-600 dark:placeholder-gray-400 text-white";
 
   const content = (
     <div className="bg-gray-900 h-[91.9vh] flex flex-col items-center pt-20">
       <form className="w-[30%]" onSubmit={onSaveUserClicked}>
-        <h1 className="text-lg text-gray-200 lg:text-xl dark:text-gray-200 mb-4 font-bold">
+        <h1 className="text-lg text-gray-200 lg:text-xl mb-4 font-bold">
           Register
         </h1>
         <div class="grid gap-6 mb-6 md:grid-cols-1">
           <div>
             <label
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              className="block mb-2 text-sm font-medium  text-white"
               htmlFor="username"
             >
               Username: <span className="nowrap"></span>
@@ -153,13 +153,13 @@ const NewUserForm = () => {
           )}
           <div>
             <label
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              className="block mb-2 text-sm font-medium text-white"
               htmlFor="password"
             >
               Password: <span className="nowrap">[4-12 chars incl. !@#$%]</span>
             </label>
             <input
-              className={`bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 ${validPwdClass} ${validConfirmPasswordClass}`}
+              className={`border text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 bg-gray-700 border-gray-600 dark:placeholder-gray-400 text-white ${validPwdClass} ${validConfirmPasswordClass}`}
               id="password"
               name="password"
               type="password"
@@ -169,13 +169,13 @@ const NewUserForm = () => {
           </div>
           <div>
             <label
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              className="block mb-2 text-sm font-medium text-white"
               htmlFor="password"
             >
               Confirm Password:
             </label>
             <input
-              className={`bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 ${validPwdClass} ${validConfirmPasswordClass}`}
+              className={`border text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 bg-gray-700 border-gray-600 dark:placeholder-gray-400 text-white ${validPwdClass} ${validConfirmPasswordClass}`}
               id="confirmPassword"
               name="confirmPassword"
               type="password"
