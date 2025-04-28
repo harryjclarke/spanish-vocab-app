@@ -17,21 +17,7 @@ const Question = ({ setGameStart }) => {
   const inPlayWords = useSelector(selectAllInPlay);
   let numQuestions = options.numQuestions;
   if (numQuestions > inPlayWords.length) numQuestions = inPlayWords.length;
-  // const numQuestions = 2; //to be updated to use state
-  // const inPlayWords = [
-  //   {
-  //     infinitive: "hablar",
-  //     tense: "present",
-  //     pronoun: "yo",
-  //     conjugation: "hablo",
-  //   },
-  //   {
-  //     infinitive: "comer",
-  //     tense: "present",
-  //     pronoun: "yo",
-  //     conjugation: "como",
-  //   },
-  // ];
+
   const userRef = useRef();
   const [answer, setAnswer] = useState("");
   const [score, setScore] = useState(0);

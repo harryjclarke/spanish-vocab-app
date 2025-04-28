@@ -66,7 +66,6 @@ const Play = () => {
     );
   }
   const handleClick = () => {
-    // console.log(numQuestions);
     setGameStart(true);
   };
 

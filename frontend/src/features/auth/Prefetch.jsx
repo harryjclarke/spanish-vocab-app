@@ -1,6 +1,5 @@
 import { store } from "../../app/store";
 import { verbsApiSlice } from "../verbs/verbsApiSlice";
-import { usersApiSlice } from "../users/usersApiSlice";
 import { scoreApiSlice } from "../score/scoreApiSlice";
 import { useEffect } from "react";
 import { Outlet } from "react-router-dom";

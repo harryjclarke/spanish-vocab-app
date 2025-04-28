@@ -1,4 +1,3 @@
-import { FcCheckmark } from "react-icons/fc";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

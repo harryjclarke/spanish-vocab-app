@@ -34,30 +34,30 @@ const EditUserForm = () => {
       <div className="w-[15%] relative overflow-x-auto pt-10">
         <table className="w-full text-sm text-left rtl:text-right text-gray-400">
           <tbody className="flex flex-col justify-center text-xs uppercase bg-gray-700 text-gray-400">
-            <tr className="py-2 flex justify-center border-b bg-gray-800 border-gray-700">
+            <tr className="py-1 flex justify-center border-b bg-gray-800 border-gray-700">
               <td
                 scope="col"
-                className="px-6 py-3 normal-case text-lg text-white"
+                className="px-6 py-3 normal-case text-base text-white"
               >
                 <Link to="/settings/edit-profile/username">
                   Update Username
                 </Link>
               </td>
             </tr>
-            <tr className="py-2 flex justify-center border-b bg-gray-800 border-gray-700">
+            <tr className="py-1 flex justify-center border-b bg-gray-800 border-gray-700">
               <td
                 scope="col"
-                className="px-6 py-3 normal-case text-lg text-white"
+                className="px-6 py-3 normal-case text-base text-white"
               >
                 <Link to="/settings/edit-profile/password">
                   Update Password
                 </Link>
               </td>
             </tr>
-            <td className="py-2 flex justify-center border-b bg-gray-800 border-gray-700">
+            <td className="py-1 flex justify-center border-b bg-gray-800 border-gray-700">
               <td
                 scope="col"
-                className="px-6 py-3 normal-case text-lg text-white"
+                className="px-6 py-3 normal-case text-base text-white"
               >
                 <button className="font-normal" onClick={onDeleteUserClicked}>
                   Delete Account

@@ -1,5 +1,5 @@
 import { useRef, useState, useEffect } from "react";
-import { useNavigate, Link, useLocation } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { selectCurrentToken } from "../features/auth/authSlice";
 import { useSendLogoutMutation } from "../features/auth/authApiSlice";
@@ -14,7 +14,6 @@ const Navbar = () => {
   const user = useAuth();
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
-  // const dropdownRef = useRef(null);
 
   const menuRef = useRef();
 
