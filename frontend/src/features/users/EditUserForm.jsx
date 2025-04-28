@@ -31,29 +31,40 @@ const EditUserForm = () => {
 
   return (
     <div className="bg-gray-900 h-[91.9vh] flex flex-col items-center pt-20">
-      <div className="w-[10%] relative overflow-x-auto pt-10">
+      <div className="w-[15%] relative overflow-x-auto pt-10">
         <table className="w-full text-sm text-left rtl:text-right text-gray-400">
-          <thead className="flex flex-col justify-center text-xs uppercase bg-gray-700 text-gray-400">
-            <tr className="flex justify-center">
-              <th scope="col" className="px-6 py-3">
+          <tbody className="flex flex-col justify-center text-xs uppercase bg-gray-700 text-gray-400">
+            <tr className="py-2 flex justify-center border-b bg-gray-800 border-gray-700">
+              <td
+                scope="col"
+                className="px-6 py-3 normal-case text-lg text-white"
+              >
                 <Link to="/settings/edit-profile/username">
                   Update Username
                 </Link>
-              </th>
+              </td>
             </tr>
-            <tr className="flex justify-center">
-              <th scope="col" className="px-6 py-3">
+            <tr className="py-2 flex justify-center border-b bg-gray-800 border-gray-700">
+              <td
+                scope="col"
+                className="px-6 py-3 normal-case text-lg text-white"
+              >
                 <Link to="/settings/edit-profile/password">
                   Update Password
                 </Link>
-              </th>
+              </td>
             </tr>
-            <tr className="flex justify-center">
-              <th scope="col" className="px-6 py-3">
-                <button onClick={onDeleteUserClicked}>Delete Account</button>
-              </th>
-            </tr>
-          </thead>
+            <td className="py-2 flex justify-center border-b bg-gray-800 border-gray-700">
+              <td
+                scope="col"
+                className="px-6 py-3 normal-case text-lg text-white"
+              >
+                <button className="font-normal" onClick={onDeleteUserClicked}>
+                  Delete Account
+                </button>
+              </td>
+            </td>
+          </tbody>
         </table>
       </div>
     </div>

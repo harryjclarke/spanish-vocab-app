@@ -93,6 +93,11 @@ const Results = ({ score, numQuestions, setGameStart }) => {
               Play Again
             </button>
           </div>
+          {!id && (
+            <div className="flex justify-center mt-6 items-center -mb-2">
+              <h1 className="text-white">Log in to save your score!</h1>
+            </div>
+          )}
         </div>
       </div>
       <div className="w-[50%] relative overflow-x-auto pt-10">

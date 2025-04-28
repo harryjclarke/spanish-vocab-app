@@ -24,6 +24,9 @@ import UpdateUsernameForm from "./features/users/UpdateUsernameForm.jsx";
 import UpdatePasswordForm from "./features/users/UpdatePasswordForm.jsx";
 import ScoresList from "./features/score/ScoresList.jsx";
 import ScoreDetailed from "./features/score/ScoreDetailed.jsx";
+import { disableReactDevTools } from "@fvilers/disable-react-devtools";
+
+// if (process.env.NODE_ENV === "production") disableReactDevTools();
 
 const router = createBrowserRouter(
   createRoutesFromElements(
