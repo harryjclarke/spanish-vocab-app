@@ -1,3 +1,3 @@
-const allowedOrigins = ["https://www.verbtrainer.onrender.com"];
+const allowedOrigins = ["https://verbtrainer.onrender.com"];
 
 module.exports = allowedOrigins;
