@@ -28,6 +28,10 @@ app.use("/users", require("./routes/userRoutes"));
 app.use("/verbs", require("./routes/verbRoutes"));
 app.use("/scores", require("./routes/scoreRoutes"));
 
+app.get("/ping", (req, res) => {
+  res.sendStatus(200);
+});
+
 app.all("*", (req, res) => {
   res.status(404);
   if (req.accepts("html")) {
