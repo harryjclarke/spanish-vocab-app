@@ -2,14 +2,14 @@
 
 A full-stack web application designed to help users practice and master Spanish verb conjugations through interactive quizzes. Features user accounts to track progress and store preferences.
 
-**Live Demo:**
+Live Demo: verbtrainer.onrender.com
 
 ## Features
 
 - User registration and secure login (JWT Authentication)
 - Interactive and customizable quizzes for practicing Spanish verb conjugations
 - Immediate feedback on user answers
-- Progress tracking
+- Score tracking
 
 ## Tech Stack
 
@@ -17,7 +17,6 @@ A full-stack web application designed to help users practice and master Spanish 
 - **Backend:** Node.js, Express.js
 - **Database:** MongoDB
 - **Authentication:** JSON Web Tokens (JWT)
-- **Deployment:** Heroku
 
 ## Usage
 
